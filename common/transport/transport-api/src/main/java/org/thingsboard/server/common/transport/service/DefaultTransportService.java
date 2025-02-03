@@ -732,7 +732,9 @@ public class DefaultTransportService extends TransportActivityManager implements
 
     @Override
     public void recordActivity(TransportProtos.SessionInfoProto sessionInfo) {
-        recordActivityInternal(sessionInfo);
+        if(sessionInfo != null) {
+            recordActivityInternal(sessionInfo);
+        }
     }
 
     private void recordActivityInternal(TransportProtos.SessionInfoProto sessionInfo) {
