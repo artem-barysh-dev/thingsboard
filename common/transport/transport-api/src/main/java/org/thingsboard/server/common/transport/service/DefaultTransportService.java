@@ -738,6 +738,8 @@ public class DefaultTransportService extends TransportActivityManager implements
     private void recordActivityInternal(TransportProtos.SessionInfoProto sessionInfo) {
         if (sessionInfo != null) {
             onActivity(toSessionId(sessionInfo), sessionInfo, getCurrentTimeMillis());
+        } else {
+            log.warn("Session info is missing, unable to record activity");
         }
     }
 
